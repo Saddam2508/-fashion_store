@@ -50,64 +50,62 @@ export default function CartPage() {
       <div className='grid lg:grid-cols-3 gap-6'>
         <div className='lg:col-span-2 space-y-4'>
           {cart.map(item => (
-            <Card key={item.id} className='p-4'>
-              <div className='className="flex flex-col sm:flex-row gap-4"'>
-                <div className='relative w-full h-52 sm:h-24 sm:w-24 shrink-0relative w-24 h-24 shrink-0'>
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className='object-cover rounded-lg'
-                  />
-                </div>
+            <Card key={item.id} className="p-4">
+  <div className="flex flex-col gap-4 md:flex-row md:items-center">
+    {/* Image */}
+    <div className="relative h-56 w-full overflow-hidden rounded-lg md:h-24 md:w-24 md:flex-shrink-0">
+      <Image
+        src={item.image}
+        alt={item.name}
+        fill
+        className="object-cover"
+      />
+    </div>
 
-                <div className='flex-1'>
-                  <h3 className='font-semibold'>{item.name}</h3>
-                  <p className='text-default-500 text-sm'>
-                    {item.category}
-                  </p>
+    {/* Product Info */}
+    <div className="flex-1">
+      <h3 className="text-lg font-semibold">{item.name}</h3>
+      <p className="text-sm text-gray-500">{item.category}</p>
 
-                  <div className='mt-4 flex items-center gap-3'>
-                    <Button
-                      isIconOnly
-                      size='sm'
-                      
-                      onClick={() => decrease(item.id)}
-                    >
-                      -
-                    </Button>
+      <div className="mt-4 flex items-center gap-3">
+        <Button
+          isIconOnly
+          size="sm"
+          onClick={() => decrease(item.id)}
+        >
+          -
+        </Button>
 
-                    <span className='font-semibold min-w-6 text-center'>
-                      {item.quantity}
-                    </span>
+        <span className="min-w-6 text-center font-semibold">
+          {item.quantity}
+        </span>
 
-                    <Button
-                      isIconOnly
-                      size='sm'
-                     
-                      onClick={() => increase(item.id)}
-                    >
-                      +
-                    </Button>
-                  </div>
-                </div>
+        <Button
+          isIconOnly
+          size="sm"
+          onClick={() => increase(item.id)}
+        >
+          +
+        </Button>
+      </div>
+    </div>
 
-                <div className='flex flex-row justify-between items-center sm:block sm:text-right mt-4 sm:mt-0'>
-                  <p className='font-bold'>
-                    ৳{item.price * item.quantity}
-                  </p>
+    {/* Price & Remove */}
+    <div className="flex items-center justify-between md:flex-col md:items-end md:justify-center">
+      <p className="text-lg font-bold">
+        ৳{item.price * item.quantity}
+      </p>
 
-                  <Button
-                    size='sm'
-                
-                    className='mt-2'
-                    onClick={() => removeItem(item.id)}
-                  >
-                    Remove
-                  </Button>
-                </div>
-              </div>
-            </Card>
+      <Button
+        size="sm"
+        className="mt-0 md:mt-3"
+        onClick={() => removeItem(item.id)}
+      >
+        Remove
+      </Button>
+    </div>
+  </div>
+</Card>
           ))}
         </div>
 
