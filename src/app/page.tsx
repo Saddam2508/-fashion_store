@@ -1,5 +1,5 @@
 
-import Banner from "@/components/banner/page";
+import Banner from "@/components/banner";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
