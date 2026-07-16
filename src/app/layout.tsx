@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ReactNode } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,11 +18,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "SkillSwap",
-  description: " Freelance Micro-Task Platform",
+  title: "Fashion Store",
+  description: " Fashion Store frontend",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: {children:ReactNode}) {
   return (
     <html
       lang="en"

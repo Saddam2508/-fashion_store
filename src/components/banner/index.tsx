@@ -51,10 +51,10 @@ const Banner = () => {
               className="w-full"
             />
             <h2 className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 text-sm sm:text-4xl font-bold text-white w-full text-center">
-              Discover Your Perfect Aesthetic
+              Discover Your Perfect Product
             </h2>
             <Link
-              href={"/all-tiles"}
+              href={"/all_product"}
               className="btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
               Browse Now

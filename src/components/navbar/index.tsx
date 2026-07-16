@@ -12,16 +12,10 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", href: "/" },
     {
-      label: "Browse Tasks",
-      href: "/tasks",
-    },
-    {
-      label: "Browse Freelancers",
-      href: "/freelancers",
+      label: "Browse Products",
+      href: "/all_products",
     },
   ];
-
-
 
 
   return (
@@ -30,11 +24,11 @@ export default function Navbar() {
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-500 shadow-lg">
-            <span className="text-xl font-bold text-white">S</span>
+            <span className="text-xl font-bold text-white">FS</span>
           </div>
 
           <div className="hidden leading-none sm:block">
-            <h1 className="text-lg font-bold text-white">SkillSwap</h1>
+            <h1 className="text-lg font-bold text-white">Fashion Store</h1>
           </div>
         </Link>
 
@@ -59,8 +53,6 @@ export default function Navbar() {
             {/* Vertical Divider */}
             <div className="h-6 w-px bg-white/20" />
 
-            {/* Auth Links */}
-             <>
                   <Link
                     href="/auth/signin"
                     className="text-sm font-medium text-violet-400 transition hover:text-violet-300"
@@ -73,7 +65,7 @@ export default function Navbar() {
                   >
                     Get Started
                   </Link>
-                </>
+              
           </div>
 
           {/* MOBILE MENU BUTTON */}
