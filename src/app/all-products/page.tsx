@@ -1,4 +1,5 @@
 
+import AllProduct from "@/components/products/AllProduct";
 import { fetchProductData } from "@/helper/fetchData";
 import { Product } from "@/types/product";
 import { Metadata } from "next";
@@ -15,7 +16,7 @@ const AllProductPage = async () => {
   console.log(productData)
   return (
     <div>
-      {/* <AllTiles tilesData={productData} /> */}
+      <AllProduct productData={productData} />
     </div>
   );
 };
