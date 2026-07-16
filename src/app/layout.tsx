@@ -6,6 +6,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ReactNode } from "react";
+import Providers from "@/helper";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +31,17 @@ export default function RootLayout({ children }: {children:ReactNode}) {
       data-theme="dark"
       className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar></Navbar>
-        <main>{children}</main>
-        <Footer></Footer>
+      <body className="min-h-full flex flex-col px-2">
+        <Providers>
+          <header>
+            <Navbar />
+          </header>
+          <main className="flex-1">{children}</main>
+          <footer>
+            <Footer />
+          </footer>
+          <ToastContainer />
+        </Providers>
       </body>
     </html>
   );
