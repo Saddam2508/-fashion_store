@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "All Product | Fashion Store",
 };
 
-const AllTilesPage = async () => {
+const AllProductPage = async () => {
   const result = await fetchProductData();
 
   if (!result) return <p> No data found</p>;
@@ -20,4 +20,4 @@ const AllTilesPage = async () => {
   );
 };
 
-export default AllTilesPage;
+export default AllProductPage;
