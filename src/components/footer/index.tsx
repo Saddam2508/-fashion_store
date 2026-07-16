@@ -3,7 +3,7 @@ import { LogoFacebook, LogoLinkedin, LogoGithub } from "@gravity-ui/icons";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black text-white">
+    <footer className="border-t border-white/10 bg-black text-white mt-20">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         {/* TOP SECTION */}
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">

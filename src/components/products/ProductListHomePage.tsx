@@ -2,22 +2,20 @@
 import AllProduct from "@/components/products/AllProduct";
 import { fetchProductData } from "@/helper/fetchData";
 import { Product } from "@/types/product";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "All Product | Fashion Store",
-};
 
-const AllProductPage = async () => {
+
+
+const ProductListHomePage = async () => {
   const result = await fetchProductData();
 
   if (!result) return <p> No data found</p>;
   const productData: Product[] = result;
   return (
     <div>
-      <AllProduct productData={productData} />
+      <AllProduct productData={productData} showSearch={false} limit={8} />
     </div>
   );
 };
 
-export default AllProductPage;
+export default ProductListHomePage;
