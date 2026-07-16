@@ -6,21 +6,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.kajariaceramics.com",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "img.daisyui.com",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "i.ibb.co",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
         hostname: "images.unsplash.com",
         pathname: "**",
       },

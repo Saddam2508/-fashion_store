@@ -8,7 +8,7 @@ import { FaHeart } from "react-icons/fa";
 const AllProductsCard = ({ product }: { product: Product }) => {
   if (!product) return <p> No data found</p>;
   return (
-    <Link href={`/all-tiles/${product.id}`}>
+    <Link href={`/all-products/${product.id}`}>
       <Card className=" gap-2 group cursor-pointer">
         <div className="relative w-full aspect-square">
           <Image
