@@ -13,7 +13,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     {
       label: "Browse Products",
-      href: "/all_products",
+      href: "/all-products",
     },
   ];
 

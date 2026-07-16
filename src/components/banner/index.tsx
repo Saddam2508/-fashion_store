@@ -10,25 +10,26 @@ import Link from "next/link";
 const bannersData = [
   {
     name: "banner1",
-    url: "https://www.kajariaceramics.com/storage/banner/desktop-banner.webp",
+    url: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&auto=format&fit=crop&q=80",
   },
   {
     name: "banner2",
-    url: "https://www.kajariaceramics.com/storage/banner/kajaria-living-desktop-2.webp",
+    url: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1600&auto=format&fit=crop&q=80",
   },
   {
     name: "banner3",
-    url: "https://www.kajariaceramics.com/storage/banner/kajaria-kitchen-dektop.webp",
+    url: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&auto=format&fit=crop&q=80",
   },
   {
     name: "banner4",
-    url: "https://www.kajariaceramics.com/storage/banner/kajaria-bathroom-desktop.webp",
+    url: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1600&auto=format&fit=crop&q=80",
   },
   {
     name: "banner5",
-    url: "https://www.kajariaceramics.com/storage/banner/kajaria-outdoor-dektop1.webp",
+    url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&auto=format&fit=crop&q=80",
   },
 ];
+
 const Banner = () => {
   return (
     <Swiper
