@@ -35,12 +35,13 @@ export default function CartPage() {
 
   return (
     <div className='container mx-auto py-10'>
-      <div className='flex items-center justify-between mb-6'>
-        <h1 className='text-3xl font-bold'>Shopping Cart</h1>
+      <div className='mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm: text-center'>
+        <h1 className='text-2xl sm:text-3xl font-bold'>Shopping Cart</h1>
 
        <Button
   variant="danger-soft"
   onClick={clearCart}
+  className="w-full sm:w-auto"
 >
   Clear Cart
 </Button>
@@ -50,8 +51,8 @@ export default function CartPage() {
         <div className='lg:col-span-2 space-y-4'>
           {cart.map(item => (
             <Card key={item.id} className='p-4'>
-              <div className='flex gap-4'>
-                <div className='relative w-24 h-24 shrink-0'>
+              <div className='className="flex flex-col sm:flex-row gap-4"'>
+                <div className='relative w-full h-52 sm:h-24 sm:w-24 shrink-0relative w-24 h-24 shrink-0'>
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -66,7 +67,7 @@ export default function CartPage() {
                     {item.category}
                   </p>
 
-                  <div className='flex items-center gap-3 mt-4'>
+                  <div className='mt-4 flex items-center gap-3'>
                     <Button
                       isIconOnly
                       size='sm'
@@ -91,7 +92,7 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <div className='text-right'>
+                <div className='flex flex-row justify-between items-center sm:block sm:text-right mt-4 sm:mt-0'>
                   <p className='font-bold'>
                     ৳{item.price * item.quantity}
                   </p>
@@ -110,7 +111,7 @@ export default function CartPage() {
           ))}
         </div>
 
-        <Card className='p-5 h-fit'>
+        <Card className='p-5 h-fit lg:sticky lg:top-24'>
           <h2 className='text-xl font-semibold mb-4'>
             Order Summary
           </h2>
@@ -133,7 +134,7 @@ export default function CartPage() {
 
          <Link
   href="/all-products"
-  className="mt-3 flex w-full items-center justify-center rounded-lg bg-black px-4 py-2 text-white hover:bg-gray-800 transition"
+  className="mt-3 flex h-11 w-full items-center justify-center rounded-lg bg-black text-white transition hover:bg-gray-800"
 >
   Continue Shopping
 </Link>
