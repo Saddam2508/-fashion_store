@@ -55,7 +55,7 @@ const Banner = () => {
               Discover Your Perfect Product
             </h2>
             <Link
-              href={"/all-product"}
+              href={"/all-products"}
               className="btn absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
             >
               Browse Now
