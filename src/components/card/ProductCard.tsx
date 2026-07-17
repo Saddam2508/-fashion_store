@@ -4,11 +4,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FaHeart } from "react-icons/fa";
+import { motion } from "motion/react";
+const MotionLink = motion.create(Link);
 
 const AllProductsCard = ({ product }: { product: Product }) => {
   if (!product) return <p> No data found</p>;
+
   return (
-    <Link href={`/all-products/${product.id}`}>
+    <MotionLink
+      href={`/all-products/${product.id}`}
+      initial={{ opacity: 0, y: 150 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{
+        scale: 1.05,
+        y: -5,
+      }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.45,
+        ease: "easeOut",
+      }}
+    >
       <Card className=" gap-2 group cursor-pointer">
         <div className="relative w-full aspect-square">
           <Image
@@ -39,7 +55,7 @@ const AllProductsCard = ({ product }: { product: Product }) => {
           {product.price} {product.colors}{" "}
         </Card.Content>
       </Card>
-    </Link>
+    </MotionLink>
   );
 };
 

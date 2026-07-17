@@ -1,4 +1,4 @@
-import { Product} from "@/types/product";
+import { Product } from "@/types/product";
 
 export const fetchProductData = async () => {
   const baseUrl = process.env.BETTER_AUTH_URL;
@@ -8,6 +8,6 @@ export const fetchProductData = async () => {
 
   if (!res.ok) return null;
 
-  const tiles: Product[] = await res.json();
-  return tiles;
+  const products: Product[] = await res.json();
+  return products;
 };

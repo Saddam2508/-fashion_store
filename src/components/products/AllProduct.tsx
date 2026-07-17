@@ -8,7 +8,6 @@ import AllProductCard from "../card/ProductCard";
 import { Product } from "@/types/product";
 import Link from "next/link";
 
-
 interface AllProductProps {
   productData: Product[];
   showSearch?: boolean;
@@ -18,7 +17,7 @@ interface AllProductProps {
 const AllProduct = ({
   productData,
   showSearch = true,
-  limit
+  limit,
 }: AllProductProps) => {
   const context = useContext(ProductContext);
   if (!context) {
@@ -26,20 +25,19 @@ const AllProduct = ({
   }
   const { product, setProducts, setAllProduct } = context;
 
-
   useEffect(() => {
     setProducts(productData);
     setAllProduct(productData);
   }, [productData, setProducts, setAllProduct]);
 
   if (!product) return <p> No data found</p>;
-    const displayProducts = limit ? product.slice(0, limit) : product;
+  const displayProducts = limit ? product.slice(0, limit) : product;
 
   return (
     <div className="container mx-auto mt-30">
       {showSearch && <Search />}
 
-      <h2 className="font-bold text-[1.75rem] text-center sm:text-left sm:text-4xl my-3">
+      <h2 className="font-bold text-[1.75rem] text-center sm:text-4xl my-3">
         The Gallery
       </h2>
 
@@ -49,16 +47,16 @@ const AllProduct = ({
         ))}
       </div>
       {!showSearch && (
-  <div className="flex justify-end mt-8">
-    <Link
-      href="/all-products"
-      className="inline-flex items-center gap-2 rounded-lg bg-black px-6 py-3 text-white transition-all duration-300 hover:bg-gray-800"
-    >
-      View All Products
-      <span>→</span>
-    </Link>
-  </div>
-)}
+        <div className="flex justify-end mt-8">
+          <Link
+            href="/all-products"
+            className="inline-flex items-center gap-2 rounded-lg bg-black px-6 py-3 text-white transition-all duration-300 hover:bg-gray-800"
+          >
+            View All Products
+            <span>→</span>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
