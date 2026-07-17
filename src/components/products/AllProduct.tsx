@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useContext, useEffect } from "react";
-
 import { Search } from "../search";
+import { CategoryFilter } from "../filter";
 import { ProductContext } from "@/context/ProductContext";
 import AllProductCard from "../card/ProductCard";
 import { Product } from "@/types/product";
@@ -23,29 +23,61 @@ const AllProduct = ({
   if (!context) {
     throw new Error("useTiles must be used within TilesProvider");
   }
-  const { product, setProducts, setAllProduct } = context;
+  const {
+    product,
+    setProducts,
+    allProduct,
+    setAllProduct,
+    selectedCategory,
+    searchTerm,
+  } = context;
 
   useEffect(() => {
-    setProducts(productData);
     setAllProduct(productData);
-  }, [productData, setProducts, setAllProduct]);
+  }, [productData, setAllProduct]);
+
+  useEffect(() => {
+    let filtered = allProduct;
+
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter((p) => p.category === selectedCategory);
+    }
+
+    if (searchTerm.length >= 3) {
+      filtered = filtered.filter((p) =>
+        p.name.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+    }
+
+    setProducts(filtered);
+  }, [allProduct, selectedCategory, searchTerm, setProducts]);
 
   if (!product) return <p> No data found</p>;
   const displayProducts = limit ? product.slice(0, limit) : product;
 
   return (
     <div className="container mx-auto mt-30">
-      {showSearch && <Search />}
+      {showSearch && (
+        <>
+          <Search />
+          <CategoryFilter />
+        </>
+      )}
 
       <h2 className="font-bold text-[1.75rem] text-center sm:text-4xl my-3">
         The Gallery
       </h2>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
-        {displayProducts.map((product) => (
-          <AllProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {displayProducts.length === 0 ? (
+        <p className="text-center text-gray-500 my-10">No products found</p>
+      ) : (
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+          {displayProducts.map((product) => (
+            <AllProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
+
       {!showSearch && (
         <div className="flex justify-end mt-8">
           <Link

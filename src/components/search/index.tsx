@@ -1,7 +1,6 @@
 "use client";
 
 import { ProductContext } from "@/context/ProductContext";
-
 import {
   Button,
   Description,
@@ -10,15 +9,14 @@ import {
   SearchField,
   Spinner,
 } from "@heroui/react";
-import React, { useContext, useState } from "react";
-import { FormEvent } from "react";
+import { useContext, useState, FormEvent } from "react";
 
 export const Search = () => {
   const context = useContext(ProductContext);
   if (!context) {
     throw new Error("useproduct must be used within ProductProvider");
   }
-  const { allProduct, setProducts } = context;
+  const { setSearchTerm } = context;
 
   const [value, setValue] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,14 +32,9 @@ export const Search = () => {
     }
 
     setIsSubmitting(true);
-    // Simulate API call
+
     setTimeout(() => {
-      const filteredData = allProduct.filter((products) =>
-        products.name.toLowerCase().includes(value.toLowerCase()),
-      );
-      if(!filteredData) return <p>Searching data not found</p>
-      setProducts(filteredData);
-      setValue("");
+      setSearchTerm(value);
       setIsSubmitting(false);
     }, 1500);
   };
@@ -54,7 +47,12 @@ export const Search = () => {
           isInvalid={isInvalid}
           name="search"
           value={value}
-          onChange={setValue}
+          onChange={(val) => {
+            setValue(val);
+            if (val.length === 0) {
+              setSearchTerm("");
+            }
+          }}
         >
           <SearchField.Group>
             <SearchField.SearchIcon />
