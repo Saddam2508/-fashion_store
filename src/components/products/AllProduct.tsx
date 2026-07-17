@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Search } from "../search";
 import { CategoryFilter } from "../filter";
 import { ProductContext } from "@/context/ProductContext";
@@ -33,10 +33,14 @@ const AllProduct = ({
   } = context;
 
   useEffect(() => {
-    setAllProduct(productData);
-  }, [productData, setAllProduct]);
+    if (showSearch) {
+      setAllProduct(productData);
+    }
+  }, [productData, setAllProduct, showSearch]);
 
   useEffect(() => {
+    if (!showSearch) return;
+
     let filtered = allProduct;
 
     if (selectedCategory !== "All") {
@@ -50,10 +54,15 @@ const AllProduct = ({
     }
 
     setProducts(filtered);
-  }, [allProduct, selectedCategory, searchTerm, setProducts]);
+  }, [allProduct, selectedCategory, searchTerm, setProducts, showSearch]);
 
-  if (!product) return <p> No data found</p>;
-  const displayProducts = limit ? product.slice(0, limit) : product;
+  const displayProducts = showSearch
+    ? limit
+      ? product.slice(0, limit)
+      : product
+    : limit
+      ? productData.slice(0, limit)
+      : productData;
 
   return (
     <div className="container mx-auto mt-30">
