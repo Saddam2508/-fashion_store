@@ -1,11 +1,10 @@
-
 import AllProduct from "@/components/products/AllProduct";
 import { fetchProductData } from "@/helper/fetchData";
 import { Product } from "@/types/product";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "All Product | Fashion Store",
+  title: "All Product | Oxivos Fashion Store",
 };
 
 const AllProductPage = async () => {

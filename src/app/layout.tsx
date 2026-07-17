@@ -21,10 +21,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Fashion Store",
-  description: " Fashion Store frontend",
+  description: " Oxivos Fashion Store",
 };
 
-export default function RootLayout({ children }: {children:ReactNode}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"

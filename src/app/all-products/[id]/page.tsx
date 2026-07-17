@@ -3,7 +3,7 @@ import { fetchProductData } from "@/helper/fetchData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Product Details | Fashion Store frontend",
+  title: "Product Details | Oxivos Fashion Store",
 };
 
 const ProductDetailsPage = async ({
@@ -12,10 +12,12 @@ const ProductDetailsPage = async ({
   params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
-  console.log(id)
+  console.log(id);
   const allProducts = await fetchProductData();
   if (!allProducts) return <p> No data found</p>;
-  const selectedProduct = allProducts.find((product) => product.id === Number(id));
+  const selectedProduct = allProducts.find(
+    (product) => product.id === Number(id),
+  );
   if (!selectedProduct) return;
   return (
     <div>
